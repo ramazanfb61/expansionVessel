@@ -3,7 +3,7 @@ import { ref } from "vue";
 
 const navBar = ref(null);
 const open = ref(["Kurumsal"]);
-const links = ref([
+const menulinks = ref([
   ["/", "Misyonumuz"],
   ["/kurumsal", "Kalite"],
   ["/urunlerimiz", "Ekibimiz"],
@@ -43,11 +43,12 @@ const links = ref([
           </template>
 
           <nuxt-link
-            v-for="([path, name], i) in links"
+            v-for="([path, name], i) in menulinks"
             style="text-decoration: none"
             :to="path"
           >
             <v-list-item :key="i" :title="name" :value="i"> </v-list-item>
+            
           </nuxt-link>
         </v-list-group>
       </v-list>

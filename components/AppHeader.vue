@@ -4,10 +4,9 @@ import { ref } from "vue";
 const navBar = ref(null);
 const open = ref(["Kurumsal"]);
 const menulinks = ref([
-  ["/", "Misyonumuz"],
-  ["/kurumsal", "Kalite"],
-  ["/urunlerimiz", "Ekibimiz"],
-  ["/iletisim", "Tanıtım"],
+  ["/misyonumuz", "Misyonumuz"],
+  ["/kalite", "Kalite"],
+  ["/tanitim", "Tanıtım"],
 ]);
 </script>
 
@@ -20,11 +19,19 @@ const menulinks = ref([
       scroll-behavior="elevate"
       scroll-threshold="400"
     >
-      <v-app-bar-title
-        class="text-white ml-10"
-        style="letter-spacing: 8px; font-size: 2rem; font-weight: 600"
-      >
-        ARMA
+      <v-app-bar-title>
+        <nuxt-link
+          class="nav-link text-white ml-sm-10"
+          style="
+            letter-spacing: 8px;
+            font-size: 2rem;
+            font-weight: 600;
+            text-decoration: none;
+          "
+          to="/"
+        >
+          ARMA
+        </nuxt-link>
       </v-app-bar-title>
       <v-spacer></v-spacer>
       <v-btn
@@ -35,25 +42,46 @@ const menulinks = ref([
     </v-app-bar>
     <v-navigation-drawer location="top" v-model="navBar" temporary>
       <v-list v-model="open">
+        <nuxt-link to="/" class="nav-link">
+          <v-list-item title="Anasayfa"></v-list-item>
+        </nuxt-link>
         <v-list-group value="Kurumsal">
           <template v-slot:activator="{ props }">
             <v-list-item v-bind="props">
-              <nuxt-link to="/kurumsal">Kurumsal</nuxt-link>
+              <nuxt-link
+                
+                class="mb-1 nav-link"
+                to="/kurumsal"
+                >Kurumsal</nuxt-link
+              >
             </v-list-item>
           </template>
 
           <nuxt-link
             v-for="([path, name], i) in menulinks"
-            style="text-decoration: none"
+            class="nav-link"
             :to="path"
           >
             <v-list-item :key="i" :title="name" :value="i"> </v-list-item>
-            
           </nuxt-link>
         </v-list-group>
+        <nuxt-link to="/urunlerimiz" class="nav-link">
+          <v-list-item title="Ürünlerimiz"></v-list-item>
+        </nuxt-link>
+        <nuxt-link to="/iletisim" class="nav-link">
+          <v-list-item title="İletişim"></v-list-item>
+        </nuxt-link>
       </v-list>
+
     </v-navigation-drawer>
   </div>
 </template>
 
-<style></style>
+<style>
+.nav-link {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: black;
+  text-decoration-thickness:1px;
+}
+</style>

@@ -1,6 +1,9 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 export default defineNuxtConfig({
-  ssr: false,
+  ssr:false,
+  devServer:{
+    host:"0.0.0.0"
+  },
   //...
   build: {
     transpile: ['vuetify'],

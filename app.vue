@@ -3,6 +3,7 @@
 
 <template>
   <div>
+    
     <NuxtLayout>
       <v-app>
         <AppHeader />

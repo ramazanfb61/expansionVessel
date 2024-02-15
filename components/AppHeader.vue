@@ -13,20 +13,23 @@ const menulinks = ref([
 <template>
   <div>
     <v-app-bar
-      class="rounded-b-lg"
-      style="background: rgb(255, 0, 0); backdrop-filter: blur(1.5rem)"
+      class="rounded-b-lg border "
+      style="background: rgb(255, 0, 0); "
       elevation="0"
-      scroll-behavior="elevate"
+      
+  
+      scroll-behavior="shrink"
       scroll-threshold="400"
     >
-      <v-app-bar-title>
+      <v-app-bar-title class="border  w-100">
         <nuxt-link
-          class="nav-link text-white ml-sm-10"
+          class="nav-link text-white w-50 ml-md-5 ml-md-10"
           style="
             letter-spacing: 8px;
             font-size: 2rem;
             font-weight: 600;
             text-decoration: none;
+
           "
           to="/"
         >
@@ -39,6 +42,20 @@ const menulinks = ref([
         icon="mdi-view-headline "
         @click="navBar = !navBar"
       ></v-btn>
+      <v-row class="d-none d-sm-flex" style="width: 250px;font-weight: 600;font-size: 18px;">
+        <v-col class="border">
+          <nuxt-link style="text-decoration: none;" class="text-white" to="/">Anasayfa</nuxt-link>
+        </v-col>
+        <v-col class="border">
+          <nuxt-link style="text-decoration: none;" class="text-white" to="/kurumsal">Kurumsal</nuxt-link>
+        </v-col>
+        <v-col class="border">
+          <nuxt-link style="text-decoration: none;" class="text-white" to="/urunlerimiz">Ürünlerimiz</nuxt-link>
+        </v-col>
+        <v-col class="border">
+          <nuxt-link style="text-decoration: none;" class="text-white" to="/iletisim">İletişim</nuxt-link>
+        </v-col>
+      </v-row>
     </v-app-bar>
     <v-navigation-drawer location="top" v-model="navBar" temporary>
       <v-list v-model="open">
@@ -84,4 +101,11 @@ const menulinks = ref([
   color: black;
   text-decoration-thickness:1px;
 }
+.nav-link-wide{
+  transition: 0.5s ease-in text-decoration;
+}
+.underline-transition:hover{
+  text-decoration: underline;
+}
+
 </style>

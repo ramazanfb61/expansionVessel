@@ -1,5 +1,5 @@
 <template>
   <div>
-    <p>this is tanitim</p>
+    <h2>this is tanitim</h2>
   </div>
 </template>
